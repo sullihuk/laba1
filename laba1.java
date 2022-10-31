@@ -30,54 +30,65 @@ class Triangle
 
 	public double value_of_sinus(double gamma)
 	{
-		gamma_norm = Math.toRadians(gamma);
-		value_is = Math.sin(gamma_norm);
+		double gamma_norm = Math.toRadians(gamma);
+		double sin_is = Math.sin(gamma_norm);
 		return sin_is;
 	}
 
 	public double value_of_cosinus(double gamma)
 	{
-		gamma_norm = Math.toRadians(gamma);
-		value_is = Math.cos(gamma_norm);
+		double gamma_norm = Math.toRadians(gamma);
+		double cos_is = Math.cos(gamma_norm);
 		return cos_is;
 	}
 
-	public double length_of_c(double length_of_a, double lenth_of_b)
+	public double length_of_c(double length_of_a, double length_of_b, double cos_is)
 	{
-		length_of_c = Math.sqrt(length_of_a*length_of_a + length_of_b*length_of_b - 2*cos_is*length_of_a*length_of_b);
+		length_of_c = Math.sqrt(Math.pow(length_of_a,2) + Math.pow(length_of_b,2) - 2*cos_is*length_of_a*length_of_b);
 		return length_of_c;
 
 	}
 
-public static double input() 
+}
+
+public class laba1
+{
+	public static double input(String phrase1, String phrase2) 
         {
-                System.out.println("Enter value: ");
+                System.out.println(phrase1 + phrase2);
                 Scanner sc = new Scanner(System.in);
                 double a = sc.nextDouble();
                                         
-                while (a <=0 || a>=180)
+                while (a <=0 )
                 {
                         System.out.println("Enter value more than zero: ");
                         double b = sc.nextDouble();
                         a = b;  
                 } 
                         
-                // System.out.println("You entered" + a);
+                System.out.println("You entered" + a);
                 return a;
         }
 
-        /* public static void main(String[] args)
+        public static void main(String[] args)
         {
-                double an_angle = gamma();
-                System.out.println("You entered" + an_angle);
- 
-                        } */
+		String valu0 = "Julia, please enter ";
+		String valu1 = "length of a side: ";
+		String valu2 = "length of b side: ";
+		String valu3 = "an angle between a and b: ";
 
-}
+                double a_length = input(valu0, valu1);
+		double b_length = input(valu0, valu2);
+		double an_angle = input(valu0, valu3);
+		Triangle one = new Triangle();
 
 
+                System.out.println("Square of your triangle is: " + one.square(a_length, b_length, one.value_of_sinus(an_angle)));
+		
+                System.out.println("Perimeter of your triangle is: " + one.perimeter(a_length, b_length, one.length_of_c(a_length, b_length, one.value_of_cosinus(an_angle))));
+ System.out.println("C will be: " + one.length_of_c(a_length, b_length, one.value_of_cosinus(an_angle)));
 
-public class laba1
+        } 
 
-{
+
 }
