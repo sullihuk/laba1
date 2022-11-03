@@ -93,7 +93,7 @@ public class laba1
                  
 		while (a <=0 || a>=180)
 		{
-			System.out.println("Enter the value from zero to 180 degrees but isn't equal zero: ");
+			System.out.println("Enter the value from zero to 180 degrees but it can't be equal to zero: ");
 			double b = sc.nextDouble();
 			a = b;	
 		} 
